@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="timestamp">Die Seite hast du das erste mal aufgerufen am: <span style="font-size: 10px;" id="date"></span></h1>
+    <script>
+        let dateElement = document.getElementById("date");
+
+        if (localStorage.getItem("firstVisit")) {
+            dateElement.innerText = localStorage.getItem("firstVisit");
+        } else {
+            let currentDate = new Date();
+            localStorage.setItem("firstVisit", currentDate.toString());
+            dateElement.innerText = currentDate.toString();
+        }
+    </script>
+</body>
+</html>
