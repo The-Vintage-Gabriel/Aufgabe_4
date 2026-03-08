@@ -1,7 +1,15 @@
-.time{
-    font-size: 200000000000px;
+#shopping_cart{ 
+    display: none;
 }
-
-.aufgerufen{
-    font-size: large;
+.material-symbols-outlined {
+    font-size: 48px !important;
+    position: relative;
+    left: 90%;
+}
+.shopflex {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
 }

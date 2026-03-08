@@ -31,7 +31,7 @@ btn.addEventListener("mouseenter", (event) => {
 
         mouseCount++;
     }else {
-        btn.textContent = "You've tryed"
+        btn.textContent = "You've tried"
     }
     event.target.style.top = currentPixelstop + "px";
     event.target.style.left = currentPixelsleft + "px";

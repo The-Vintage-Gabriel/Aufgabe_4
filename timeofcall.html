@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="general_settings.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <h1 class="aufgerufen" id="timestamp">Die Seite hast du das erste mal aufgerufen am: <span class = "time" id="date"></span></h1>
-    <script>
-        let dateElement = document.getElementById("date");
+    <nav>
+        <ul>
+            <li><a href="/auswahl.html">Übersicht</a></li>
+            <li><a href="/timeofcall.html">Aufgerufen am</a></li>
+            <li><a href="/produkte.html">Produkte</a></li>
+            <li><a href="/hobbys.html">Hobbys</a></li>
+            <li><a href="/kontakt.html">Kontakt</a></li>
+            <li><a><img src="" alt=""></a></li>
+        </ul>
+    </nav>
 
-        if (localStorage.getItem("firstVisit")) {
-            dateElement.innerText = localStorage.getItem("firstVisit");
-        } else {
-            let currentDate = new Date();
-            localStorage.setItem("firstVisit", currentDate.toString());
-            dateElement.innerText = currentDate.toString();
-        }
-    </script>
+    <h1 class="aufgerufen" id="timestamp" style="font-family: Arial, Helvetica, sans-serif;">Die Seite hast du das erste mal aufgerufen am: <br><span class = "time" id="date"></span></h1>
+    <script src="timestamp.js"></script>
 </body>
 </html>
