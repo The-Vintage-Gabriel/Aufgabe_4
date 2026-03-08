@@ -1,0 +1,23 @@
+#shopping_cart{ 
+    display: none;
+}
+.right{
+    font-size: 48px !important;
+    position: relative;
+    left: 90%;
+}
+.shopFlexcart{
+    font-size: 30px !important;
+}
+.shopFlex {
+    justify-content: space-around;
+    margin: 10px;
+    padding: 10px;
+    display: flex !important;
+    flex-direction: row;
+    text-align: center !important;
+    box-sizing: border-box;
+}
+.text{
+    font-size: 30px;
+}
