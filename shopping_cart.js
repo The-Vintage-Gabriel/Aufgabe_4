@@ -1,12 +1,6 @@
-let todoListeElement = document.querySelector("#shopList")
-
-function loadTodoItems(text) {
-    const todoListeElement = document.getElementById("todoListe");
-    const newDiv = document.createElement("li");
-    const newContent = document.createTextNode(text);
-
-    newDiv.appendChild(newContent);
-    todoListeElement.appendChild(newDiv);
+function loadTodoItems() {
+    const todoListeElement = document.getElementById("shopList");
+    todoListeElement.innerHTML = ""; // Liste vorher leeren
 
     let gesamtPreis = 0;
     let gesamtAnzahl = 0;
@@ -14,14 +8,15 @@ function loadTodoItems(text) {
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let localStorageValue = localStorage.getItem(key);
-        let splittedArray = localStorageValue.split("|");
+        if (!localStorageValue) continue;
 
+        let splittedArray = localStorageValue.split("|");
         let produktName = splittedArray[0];
-        let preis = parseFloat(splittedArray[1]);
+        let preis = parseFloat(splittedArray[1]) || 0;
         let anzahl = splittedArray[2] ? parseInt(splittedArray[2]) : 1;
 
         const item = document.createElement("li");
-        item.textContent = produktName + " - Preis: " + preis + " - Anzahl: " + anzahl;
+        item.textContent = produktName + " - Preis: " + preis.toFixed(2) + "€ - Anzahl: " + anzahl;
         todoListeElement.appendChild(item);
 
         gesamtPreis += preis * anzahl;
@@ -29,6 +24,9 @@ function loadTodoItems(text) {
     }
 
     const gesamtInfo = document.createElement("p");
-    gesamtInfo.textContent = "Gesamtanzahl der Produkte: " + gesamtAnzahl + ", Gesamtpreis: " + gesamtPreis.toFixed(2);
+    gesamtInfo.textContent = "Gesamtanzahl der Produkte: " + gesamtAnzahl + ", Gesamtpreis: " + gesamtPreis.toFixed(2) + " €";
     todoListeElement.appendChild(gesamtInfo);
 }
+
+document.addEventListener("DOMContentLoaded", loadTodoItems);
+
